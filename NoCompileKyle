@@ -1,0 +1,185 @@
+/***********************************************************
+Program Name: Simple Math Calculator
+Program Author: Kyle NoCompile
+Date Created: 9/12/16
+Program Description: 
+	This program performs simple arithmetic calculations.
+	The user enters numbers and the math operation to 
+	perform on those numbers. The program will then display
+	the result of the operation.
+	
+Modified Date: 2/28/20
+Modified Description: Program will act as basic addition/ subtraction calculator.
+***********************************************************/
+
+#include <iostream>
+using namespace std;
+
+// Function prototypes:
+void showWelcome(void);
+int getUserIntegerInput();
+char getMathChoice(); //Added Semicolon
+int getInteger(); //Removed bool
+bool validateMathChoice(char choice); //Added Semicolon
+int doAddition(int int1, int int2);
+int doSubtraction(int int1, int int2); //Changed 'int' and 'int' to 'int1' and 'int2'
+int doMath(int firstInt, int secondInt, char mathFunc);
+void showResult(int); //Added Semicolon
+
+
+// This is the main function (where the program begins)
+int main(void)
+{
+	// Variables to hold local data
+	int firstNum, secondNum; //Replaceed Semicolon With Comma
+	int mathChoice; //Removed Parentheses
+	int result;
+		
+	// Call the showWelcome() function
+	showWelcome(); //Removed Void
+	
+	// Call the getInteger() function (for the first integer)
+	// and store the result in the "firstNum" variable
+	firstNum = getInteger(); //Made the 'g' not capital
+	
+	
+	// Call the getMathChoice() function and store result in "mathChoice" variable
+	mathChoice = getMathChoice(); //Removed 42
+	
+	// Call validateMathChoice() function, passing it the user's math choice
+	// and using the return value to decide what to do next
+	if (validateMathChoice(mathChoice)) //Added mathChoice
+	{
+		// Call the getInteger() function (for the second and subsequent integers)
+		// and store the result in the "secondNum" variable			
+		secondNum = getInteger(); //Removed 'false'
+		
+		// Call the doMath() function and pass it all of the user input
+		// and store the return value in the "result" variable.
+		result = doMath(firstNum, secondNum, mathChoice); //Added commas
+		
+		// Call the showResult() function to show the result
+		showResult(result);
+	}
+	else
+	{
+		// If the user chose an invalid math function...
+		cout<<"Not a valid math choice"<<endl;
+	}
+	
+	return 0;
+}
+
+
+// This function shows a nice welcome message
+void showWelcome()
+{
+	cout<<"******************************************"<<endl;
+	cout<<"Welcome to the simple calculator program!"<<endl;
+	cout<<"This program will do simple addition and"<<endl; //Added semicolon
+	cout<<"subtraction. Math is fun, so enjoy!"<<endl;
+	cout<<"******************************************"<<endl;
+}
+
+// This function gets integer input from the user
+int getUserIntegerInput() //Changed 'string' to 'int'
+{
+	int Userinput;
+	cin>>Userinput; //Changed to 'Userinput'
+	return Userinput; //Changed to 'Userinput'
+}
+
+// This function asks the user for a math function
+// and returns the user's input
+char getMathChoice()
+{
+	char choice;
+	cout<<endl<<"Please select a math function to perform (+ = Addition, - = Subtraction): "; //Removed '"\'
+	cin>>choice;
+	return choice; //Finished word 'return'
+}
+
+// this function asks the user for either the first integer
+// or the second and returns the user's input
+int getInteger(bool firstNumber)
+{
+	cout<<endl<<"Please enter the first number"; //Added 'first number'
+	
+	// if the "firstNumber" variable is true, then this
+	// is the first number being collected
+	if (firstNumber)
+	{
+		cout<<"first ";
+	}
+	// Otherwise, it's the second number being collected
+	else
+	(
+		cout<<"second: "); //Added parentheses and colon
+	// Removed parentheses
+	cout<<"integer: "<<endl; //Added 'endl'
+	
+	// Call the getUserIntegerInput() function and return the return value from it
+	return getUserIntegerInput();
+}
+
+
+
+// This function validates the user's match function choice
+// by returning a true for valid, and a false for invalid
+bool validateMathChoice(char choice)
+{
+	if (choice == '+' && choice == '-')
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+// This function adds two integers
+int doAddition(int int1, int int2) //Removed semicolon
+{
+	return int1 + int2;
+}
+
+// This function subtracts the second integer
+// parameter from the first integer parameter
+int doSubtraction(int int1, int int2) //Remove semicolon
+{
+	return int1 - int2;
+}
+
+
+// This function determines the result of the math
+// operation requested by the user
+int doMath(int firstInt, int secondInt, char mathFunc)
+{
+	// Initialize result to zero (0)
+	int result = 0; //Removed one '='
+	
+	// If the math function is a "+", then call the
+	// doAddition() function and store the return 
+	// value in the "result" variable
+	if (mathFunc == '+')
+	{
+		result = doAddition(firstInt, secondInt);
+	}
+	// If the math function is a "-", then call the
+	// doSubtraction() function and store the return 
+	// value in the "result" variable
+	else (mathFunc == '-'); //Added semicolon
+	{
+		result = doSubtraction(firstInt, secondInt);
+	}
+	
+	return result;
+}
+
+// This function displays the result of a math operation
+void showResult(int result) //Changed 'bool' to 'void'
+{
+	cout<<endl<<"The result is "<<result<<endl;
+	return; //Added 'return;'
+}
