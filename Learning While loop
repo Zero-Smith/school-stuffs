@@ -1,0 +1,159 @@
+/***************************************
+Dinner For One
+Author: Alex
+Date Created: 3/12/20
+Description: Program will allow you to create a full, custom meal.
+***************************************/
+
+#include <iostream>
+using namespace std;
+
+class Custom
+{
+    private:
+    string CustomEntree;
+    string CustomSide;
+    string SizeC;
+    string DrinkC;
+    int PriceC;
+
+    public:
+
+    Custom()
+    {
+        
+    }
+
+    Custom(string CE, string CS, string S, string D, int P)
+        : CustomEntree(CE), CustomSide(CS), SizeC(S), DrinkC(D), PriceC(P)
+    {
+    };
+
+    string SetEntree()
+    {
+        string CustomEntree;
+
+        cout<<"Enter your custom Entree name."<<endl;
+        cin>>CustomEntree;
+
+        return CustomEntree;
+    }
+
+    string SetSide()
+    {
+        string CustomSide;
+
+        cout<<"Enter your custom Side name."<<endl;
+        cin>>CustomSide;
+    
+        return CustomSide;
+    }
+};
+
+class Combo
+{
+    private:
+    
+    string Food;
+    string CustomEntree;
+    string CustomSide;
+    string Size;
+    string Drink;
+    int Price;
+
+    public:
+
+    Combo()
+    {
+
+    }
+
+    Combo(string F, string S, string D, int P)
+        : Food(F), Size(S), Drink(D), Price(P)
+    {
+    }
+
+    string GetCombo()
+    {
+         return Food;
+    }
+
+    string SetCombo()
+    {
+        string ComboSelection;
+        
+        while(Food != "1", "2", "3", "4")
+        {
+            cout<<"Make a selection 1-4"<<endl;
+            cin>>ComboSelection;
+        
+            cout<<"That is not a valid selection, human."<<endl;
+
+            Food = ComboSelection;
+        }
+            
+        return ComboSelection;
+    }
+
+    string SetSize()
+    {
+        string SizeSelection;
+        
+        cout<<"Size upgrade prices: Small +$0, Medium +$2, Large +$3"<<endl;
+        cout<<"Select a size 1-3"<<endl;
+        cin>>SizeSelection;
+
+        if (SizeSelection != "1", "2", "3")
+        {
+            cout<<"That is not a valid selection, human."<<endl;
+        }
+
+        Size = SizeSelection;
+        
+        return SizeSelection;
+    }
+
+    string SetDrink()
+    {
+        string DrinkSelection;
+        
+        cout<<"Enter a refreshment name. If nothing is entered, Coke will be selected."<<endl;
+        cin>>DrinkSelection;
+        
+        if (DrinkSelection == "")
+        {
+            cout<<"No drink entered. Defaulted to Coke."<<endl;
+        }
+
+        else
+        {
+            Drink = DrinkSelection;
+        }
+        return DrinkSelection;
+    }
+};
+
+
+int main()
+{
+   Combo theCombo;
+   Custom theCustom;
+   
+   cout<<"Welcome to ShowBot the Robots Human Restaurant! What would you like to order?"<<endl;
+   cout<<"Combo 1:"<<endl<<"Entree: Hamburger"<<endl<<"Side: Fries"<<endl<<"Price: $5.99"<<endl;
+   cout<<"Combo 2:"<<endl<<"Entree: Burrito"<<endl<<"Side: Rice"<<endl<<"Price: $4.99"<<endl;
+   cout<<"Combo 3:"<<endl<<"Entree: Salad"<<endl<<"Side: Breadsticks"<<endl<<"Price: $4.49"<<endl;
+   cout<<"Combo 4:"<<endl<<"Custom Order"<<endl<<"Price: $6.99"<<endl;
+
+   cout<<"Select your order number, human."<<endl;
+   cout<<theCombo.SetCombo()<<endl;
+
+   cout<<"Select your size, human."<<endl;
+   cout<<theCombo.SetSize()<<endl;
+
+   cout<<"Enter your desired refreshment, human."<<endl;
+   cout<<theCombo.SetDrink()<<endl;
+
+
+   return 0;
+}
