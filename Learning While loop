@@ -82,7 +82,7 @@ class Combo
     {
         string ComboSelection;
         
-        while(Food != "1", "2", "3", "4")
+        while(Food == "1", "2", "3", "4")
         {
             cout<<"Make a selection 1-4"<<endl;
             cin>>ComboSelection;
