@@ -4,55 +4,63 @@ using namespace std;
 int main()
 {
     int UE;
-    bool TA;
-    bool CA;
 
-    TA == true;
-    CA == false;
+    //you can set variable values upon creation
+    bool TA = true;
+    bool CA = false;
 
-    
-    
-    while(TA == true)
+    //There's no need for a comparision with a bool. This has the same effect as
+    //while(TA == true)
+    while (TA)
     {
-            
-        while(CA == false)
+        //you can use a ! and a bool to simplify this as well. Has the same effect as
+        //while(CA == false)
+        while (!CA)
         {
-            
-            cout<<"Please enter a number between 1 and 10."<<endl;
-            cin>>UE;
-            
-            if(UE != 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+            cout << "Please enter a number between 1 and 10." << endl;
+            cin >> UE;
+
+            //UE != 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 will not work, but since UE is an integer
+            //you can use less than and greater than with AND. So the below checks if UE is an
+            //integer less than or equal to zero and greater than 10.
+            if (UE <= 0 && UE > 10)
             {
-                cout<<"That integer is not between 1 and 10. Try again,"<<endl;
-                CA == false;
+                cout << "That integer is not between 1 and 10. Try again," << endl;
+                CA = false;
             }
 
-            else if (UE = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+            //you didn't need an else if here, you could just use else.
+            else
             {
-                CA == true;
+                CA = true;
             }
-            
+
         }
 
-        while(UE != 10)
+        while (UE != 10)
         {
-            UE ++;
+            UE++;
 
-            cout<<UE<<endl;
+            cout << UE << endl;
         }
 
         char A;
-        cout<<"Would you like to play again? Y/N"<<endl;
-        cin>>A;
+        cout << "Would you like to play again? Y/N" << endl;
+        cin >> A;
 
+        //you didn't reset CA here so it would just keep asking if you would like to play
+        //again without going into the second while loop above.
         if (A == 'Y')
         {
-            TA == true;
+            TA = true;
+            //added the below
+            CA = false;
         }
 
         else if (A == 'N')
         {
-            TA == false;
+            TA = false;
             return TA;
         }
     }
