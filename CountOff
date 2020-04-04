@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int UE;
+    int RA;
+    bool TA;
+    bool CA;
+
+    TA = true;
+    CA = false;
+
+    while(TA = true)
+    {
+            
+        while(CA = false)
+        {
+            
+            cout<<"Please enter a number between 1 and 10."<<endl;
+            cin>>UE;
+            
+            if(UE != 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+            {
+                cout<<"That integer is not between 1 and 10. Try again,"<<endl;
+                CA = false;
+            }
+
+            else if (UE == 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+            {
+                CA = true;
+            }
+            
+        }
+
+        while(UE != 10)
+        {
+            UE ++;
+
+            cout<<UE<<endl;
+        }
+
+        char A;
+        cout<<"Would you like to play again? Y/N"<<endl;
+        cin>>A;
+
+        if (A == 'Y')
+        {
+            TA = true;
+        }
+
+        else if (A == 'N')
+        {
+            TA = false;
+            return TA;
+        }
+    }
+    return 0;
+}
